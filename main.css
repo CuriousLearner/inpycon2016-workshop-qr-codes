@@ -1,0 +1,25 @@
+@page {
+    size: 21cm 29.7cm;
+    margin: 30mm 45mm 30mm 45mm; /* change the margins as you want them to be. */
+}
+
+body {
+    height: 842px;
+    width: 617px;
+    /* to centre page on screen*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.attendees-group-1 {
+	float: left;
+}
+
+.attendees-group-2 {
+	float: left;
+}
+
+.name {
+	float: left;
+	margin-right: 15px;
+}
