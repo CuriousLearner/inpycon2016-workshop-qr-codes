@@ -17,12 +17,14 @@
   </head>
   <body>
     <div class="main">
-        <div class="name">
-            {{ name }}
-        </div>
-        <div class="qrcode">
-            <img src="qrcodes/{{ id }}.jpg">
-        </div>
+        {% for attendee in attendees %}
+            <div class="name">
+                {{ attendee.name }}
+            </div>
+            <div class="qrcode">
+                <img src="qrcodes/{{ attendee.id }}.jpg">
+            </div>
+        {% endfor %}
     </div>
   </body>
 </html>

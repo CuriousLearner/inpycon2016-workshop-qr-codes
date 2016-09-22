@@ -15,22 +15,24 @@ parser.add_argument('-i',
 args = vars(parser.parse_args())
 
 
-def get_attendee_name():
+def get_attendee_data():
     import csv
     with open('workshop.csv') as csvfile:
         pycon_india_worskhops = csv.reader(csvfile)
         attendee_id = int(args["id"])
+        attendees = []
         for linenumber, row in enumerate(pycon_india_worskhops):
-            if linenumber == attendee_id:
-                print row[0]
-                return row[0]
-
+            if linenumber >= attendee_id:
+                if linenumber > 16:
+                    break
+                attendee = {'name': str(row[0]).title(), 'id': linenumber}
+                attendees.append(attendee)
+        return attendees
 
 if __name__ == "__main__":
     site = make_site(contexts=[
         ('index.html', {
-            "id": args["id"],
-            "name": get_attendee_name()
+            "attendees": get_attendee_data()
         })
     ])
     # enable automatic reloading
