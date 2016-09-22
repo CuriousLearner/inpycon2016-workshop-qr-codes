@@ -17,14 +17,38 @@
   </head>
   <body>
     <div class="main">
-        {% for attendee in attendees %}
-            <div class="name">
-                {{ attendee.name }}
-            </div>
-            <div class="qrcode">
-                <img src="qrcodes/{{ attendee.id }}.jpg">
-            </div>
-        {% endfor %}
+        <table class="attendees-group-1">
+            {% for attendee in attendees_group_1 %}
+                <tr>
+                    <td>
+                        <div class="name">
+                            {{ attendee.name }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="qrcode">
+                            <img src="qrcodes/{{ attendee.id }}.jpg">
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <table class="attendees-group-2">
+            {% for attendee in attendees_group_2 %}
+                <tr>
+                    <td>
+                        <div class="name">
+                            {{ attendee.name }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="qrcode">
+                            <img src="qrcodes/{{ attendee.id }}.jpg">
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
   </body>
 </html>

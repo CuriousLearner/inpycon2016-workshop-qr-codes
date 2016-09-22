@@ -23,16 +23,20 @@ def get_attendee_data():
         attendees = []
         for linenumber, row in enumerate(pycon_india_worskhops):
             if linenumber >= attendee_id:
-                if linenumber > attendee_id + 16:
+                if linenumber > attendee_id + 15:
                     break
                 attendee = {'name': str(row[0]).title(), 'id': linenumber}
+                # attendee = {'name': str(row[0]).title(), 'id': 1}
                 attendees.append(attendee)
-        return attendees
+        print(len(attendees))
+        return attendees[0:][::2], attendees[1:][::2]
 
 if __name__ == "__main__":
+    attendees_group_1, attendees_group_2 = get_attendee_data()
     site = make_site(contexts=[
         ('index.html', {
-            "attendees": get_attendee_data()
+            "attendees_group_1": attendees_group_1,
+            "attendees_group_2": attendees_group_2
         })
     ])
     # enable automatic reloading
