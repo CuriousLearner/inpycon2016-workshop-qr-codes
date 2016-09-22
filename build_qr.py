@@ -23,7 +23,7 @@ def get_attendee_data():
         attendees = []
         for linenumber, row in enumerate(pycon_india_worskhops):
             if linenumber >= attendee_id:
-                if linenumber > 16:
+                if linenumber > attendee_id + 16:
                     break
                 attendee = {'name': str(row[0]).title(), 'id': linenumber}
                 attendees.append(attendee)
